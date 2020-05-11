@@ -1,0 +1,36 @@
+secret_key_base: V1lAt1nAUhWtPY-4sc7FHCKZNU5GnIWCIDhaOsx-f1U
+port: 3000
+name: galena
+
+logging:
+  severity: debug
+  colorize: true
+  filter:
+    - password
+    - confirm_password
+  context:
+    - request
+    - session
+    - headers
+    - cookies
+    - params
+
+host: 0.0.0.0
+port_reuse: true
+process_count: 1
+# ssl_key_file:
+# ssl_cert_file:
+redis_url: "redis://localhost:6379"
+database_url: postgres://onyx:password@localhost:5432/galena_development
+auto_reload: true
+
+session:
+  key: amber.session
+  store: signed_cookie
+  expires: 0
+
+smtp:
+  enabled: false
+
+secrets:
+  description: Store your development secrets credentials and settings here.
