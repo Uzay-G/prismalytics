@@ -39,7 +39,7 @@ script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.m
 - bot.commands.each do |command|
     - chart_data["labels"] << command.command
     - chart_data["datasets"][0]["data"] << command.occurences
-    - chart_data["datasets"][0]["backgroundColor"] << "rgb(#{100 + i * 155 / command.command.size}, #{i * 255 / command.command.size}, #{i * 255 / command.command.size})"
+    - chart_data["datasets"][0]["backgroundColor"] << "rgb(#{Random.rand(255)}, #{Random.rand(255)}, #{Random.rand(255)})"
     - i += 1
 
 - activity_data = {"labels": [] of String, "datasets": [{"label": "Daily messages received by bot", "data": [] of Int32, "borderColor": "rgb(154, 31, 64)", "lineTension": 0.1, "fill": false},{"label": "Number of servers", "data": [] of Int32, "borderColor": "rgb(22, 36, 71)", "lineTension": 0.1,"fill": false}]}
