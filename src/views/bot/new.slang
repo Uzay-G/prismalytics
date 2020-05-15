@@ -3,7 +3,7 @@ h1 New bot
   ul.errors
   - bot.errors.each do |error|
     li
-      bot.to_s
+      error.to_s
 
 form action="/bots/create" method="post"
   == csrf_tag

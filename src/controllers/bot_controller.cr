@@ -3,7 +3,7 @@ class BotController < ApplicationController
     getter user = User.new
 
     before_action do
-        only [:show, :edit, :update, :destroy, :new] { require_user }
+        only [:show, :edit, :update, :destroy, :new, :create] { require_user }
     end
 
     def show
@@ -45,7 +45,7 @@ class BotController < ApplicationController
           redirect_to "/bots/#{bot.id}"
           flash[:success] = "Created Bot successfully."
         else
-          flash[:danger] = "Could not create User!"
+          flash[:danger] = bot.errors.to_s
           render "new.slang"
         end
       end

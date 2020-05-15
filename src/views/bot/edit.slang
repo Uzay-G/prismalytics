@@ -3,7 +3,7 @@ h1 Edit #{bot.name}
   ul.errors
   - bot.errors.each do |error|
     li
-      bot.to_s
+      error.to_s
 
 
 form action="/bot/#{bot.id}" method="post"
