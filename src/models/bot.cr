@@ -3,11 +3,14 @@ class Bot < Granite::Base
   table bots
 
   belongs_to :user
-
+  has_many commands : Command
+  has_many servers : Server
+  has_many activities : Activity
   column id : Int64, primary: true
   column token : String
   column name : String
   column prefix : String
+
   timestamps
 
   validate :user_id, "is required", ->(bot : Bot) do

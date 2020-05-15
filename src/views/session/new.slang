@@ -14,4 +14,4 @@ form action="/session" method="post"
     input.form-control type="password" name="password" placeholder="Password"
   button.btn.btn-success.btn-sm type="submit" Sign In
 hr
-== link_to("Don't have an account yet?", "/signup") -%>
+== link_to("Don't have an account yet?", "/signup")

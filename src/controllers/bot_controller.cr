@@ -12,12 +12,12 @@ class BotController < ApplicationController
             flash[:danger] = "Bot not found"
             redirect_to "/"
         else
-            render("show.ecr")
+            render("show.slang")
         end
     end
 
     def new
-        render("new.ecr")
+        render("new.slang")
     end
 
     def edit
@@ -26,7 +26,7 @@ class BotController < ApplicationController
             flash[:danger] = "Bot not found"
             redirect_to "/"
         else
-            render("edit.ecr")
+            render("edit.slang")
         end
     end
     
@@ -39,7 +39,7 @@ class BotController < ApplicationController
           flash[:success] = "Created Bot successfully."
         else
           flash[:danger] = "Could not create User!"
-          render "new.ecr"
+          render "new.slang"
         end
       end
 
@@ -50,7 +50,7 @@ class BotController < ApplicationController
             redirect_to "/", flash: {"success" => "User has been updated."}
         else
             flash[:danger] = "Could not update bot!"
-            render "edit.ecr"
+            render "edit.slang"
         end
     end
 

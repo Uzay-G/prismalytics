@@ -28,6 +28,10 @@ shards:
     github: crystal-lang/crystal-db
     version: 0.9.0
 
+  discordcr:
+    github: discordcr/discordcr
+    commit: 936869afd3f3be4b0606d5fd51f4489d46ce58a4
+
   email:
     github: arcage/crystal-email
     version: 0.4.6

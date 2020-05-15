@@ -8,12 +8,12 @@ h1 Sign Up
         error.to_s
 
 form action="/registration" method="post"
-  == csrf_tag %
-  div.form-group
-    input.form-control type="email" name="email" placeholder="Email"
-
-  div.form-group
-    input.form-control" type="password" name="password" placeholder="Password"
-  button.btn.btn-success.btn-sm" type="submit" Register
+  == csrf_tag
+  div class="form-group"
+    input class="form-control" type="email" name="email" placeholder="Email"
+  div class="form-group"
+    input class="form-control" type="password" name="password" placeholder="Password"
+  button.btn.btn-success.btn-sm type="submit"
+    | Register
 hr
 == link_to("Already have an account?", "/signin")

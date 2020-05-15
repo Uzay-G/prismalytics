@@ -1,7 +1,48 @@
 $primary: #f4994b;
 
 @import '~bootstrap/scss/bootstrap';
-
 .main {
   padding-top: 20px;
+}
+#commands, #activity {
+  margin: auto;  
+}
+
+#dashboard {
+  padding: 50px 0px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  .command-div {
+    width: 50%;
+  }
+  
+}
+
+h3, h2, h1 {
+  font-family:'Fjalla One', sans-serif;
+}
+
+p, li {
+  font-family: 'Roboto', sans-serif;
+}
+.servers {
+  margin: auto;
+  width: 800px;
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  #dashboard .command-div {
+      width: 100%;
+  }
+  #dashboard {
+    padding: 10px 0px;
+    .command-div, .float-left {
+      padding: 30px 0px;
+    }
+  } 
 }

@@ -1,7 +1,7 @@
 class SessionController < ApplicationController
   def new
     user = User.new
-    render("new.ecr")
+    render("new.slang")
   end
 
   def create
@@ -13,7 +13,7 @@ class SessionController < ApplicationController
     else
       flash[:danger] = "Invalid email or password"
       user = User.new
-      render("new.ecr")
+      render("new.slang")
     end
   end
 

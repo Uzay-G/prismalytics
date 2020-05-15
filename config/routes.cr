@@ -23,7 +23,7 @@ Amber::Server.configure do
     plug Amber::Pipe::Error.new
     plug Amber::Pipe::Logger.new
     plug Amber::Pipe::Session.new
-    plug Amber::Pipe::CORS.new
+  #  plug Amber::Pipe::CORS.new
   end
 
   # All static content will run these transformations
@@ -46,6 +46,7 @@ Amber::Server.configure do
     delete "/bots/:id", BotController, :destroy
     patch "/bot/:id", BotController, :update
     get "/bots/edit/:id", BotController, :edit
+
   end
 
   routes :auth do
@@ -56,6 +57,7 @@ Amber::Server.configure do
   end
 
   routes :api do
+    post "/send_data", StatsApiController, :send_data
   end
 
   routes :static do

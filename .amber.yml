@@ -17,7 +17,7 @@ watch:
       - ./config/**/*.cr
       - ./config/environments/*.yml
       - ./src/**/*.cr
-      - ./src/**/*.ecr
+      - ./src/**/*.slang
       - ./src/locales/*.yml
     # exclude: # NOTE simplistic implementation: (1) enumerate all includes and excludes; (2) return (includes - excludes)
     #  - ./src/some_irrelevant_file.cr

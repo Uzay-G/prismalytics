@@ -12,4 +12,8 @@ class Command < Granite::Base
   validate :command, "is required", ->(command : Command) do
     (command = command.command) ? !command.empty? : false
   end
+
+  validate :bot_id, "is required", ->(command : Command) do
+    (bot_id = command.bot_id) ? !bot_id.nil? : false
+  end
 end

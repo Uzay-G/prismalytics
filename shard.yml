@@ -45,3 +45,6 @@ development_dependencies:
   garnet_spec:
     github: amberframework/garnet-spec
     version: 0.2.0
+  discordcr:
+    github: discordcr/discordcr
+    branch: cr-0.34

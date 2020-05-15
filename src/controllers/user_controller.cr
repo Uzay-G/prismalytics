@@ -6,15 +6,15 @@ class UserController < ApplicationController
   end
 
   def show
-    render("show.ecr")
+    render("show.slang")
   end
 
   def new
-    render "new.ecr"
+    render "new.slang"
   end
 
   def edit
-    render("edit.ecr")
+    render("edit.slang")
   end
 
   def create
@@ -27,7 +27,7 @@ class UserController < ApplicationController
       redirect_to "/", flash: {"success" => "Created User successfully."}
     else
       flash[:danger] = "Could not create User!"
-      render "new.ecr"
+      render "new.slang"
     end
   end
 
@@ -37,7 +37,7 @@ class UserController < ApplicationController
       redirect_to "/", flash: {"success" => "User has been updated."}
     else
       flash[:danger] = "Could not update User!"
-      render "edit.ecr"
+      render "edit.slang"
     end
   end
 
