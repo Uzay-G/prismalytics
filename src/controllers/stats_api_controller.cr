@@ -1,7 +1,5 @@
-require "discordcr"
 class StatsApiController < ApplicationController
     def send_data
-        client = Discord::Client.new(token: ENV["DISCORD_SECRET"].to_s, client_id: ENV["DISCORD_CLIENT"].to_s.to_u64)
         bot = Bot.find_by(token: request.headers["key"])
         if bot.nil?
             halt!(401, "Unauthorized")
