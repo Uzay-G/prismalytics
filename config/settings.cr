@@ -72,7 +72,7 @@ Amber::Server.configure do |settings|
   # Redis URL: Redis is an in memory key value storage. Amber utilizes redis as
   # a storing option for session information.
   #
-  # settings.redis_url = ENV["REDIS_URL"] if ENV["REDIS_URL"]?
+  settings.redis_url = ENV["REDIS_URL"] if ENV["REDIS_URL"]?
   #
   #
   # Database URL: This is the database connection string or data file url.
@@ -80,7 +80,7 @@ Amber::Server.configure do |settings|
   # database or the data file. Defaults to the database provider you chose at
   # at app generation.
   #
-  # settings.database_url = ENV["DATABASE_URL"] if ENV["DATABASE_URL"]?
+  settings.database_url = ENV["DATABASE_URL"] if ENV["DATABASE_URL"]?
   #
   #
   # SSL Key File: The private key is a text file used initially to generate a
