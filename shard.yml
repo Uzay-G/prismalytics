@@ -1,4 +1,4 @@
-name: galena
+name: primsalytics
 version: 0.1.0
 
 authors:
@@ -10,7 +10,7 @@ license: UNLICENSED
 
 targets:
   galena:
-    main: src/galena.cr
+    main: src/prismalytics.cr
 
   amber:
     main: lib/amber/src/amber/cli.cr

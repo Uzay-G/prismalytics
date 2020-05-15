@@ -1,6 +1,6 @@
 secret_key_base: V1lAt1nAUhWtPY-4sc7FHCKZNU5GnIWCIDhaOsx-f1U
 port: 3000
-name: galena
+name: prismalytics
 
 logging:
   severity: debug
