@@ -27,13 +27,13 @@ class StatsApiController < ApplicationController
 
                 server = bot.servers.find_by(name: server_data["name"].as_s)
                 if server.nil? 
-                   server_count = (server_data["approximate_member_count"]) ? -1 : server_data["approximate_member_count"].as_i
+                   server_count = (bot.name == "Onyx") ? -1 : server_data["approximate_member_count"].as_i
                    server = Server.new(name: server_data["name"].as_s, bot_id: bot.id, region: server_data["region"].as_s, users: server_count, message_count: 1)
                    activity.servers += 1
                    activity.save
                 else
                     server.message_count += 1
-                    if server_data["approximate_member_count"]
+                    if bot.name != "Onyx" && server_data["approximate_member_count"]
                         server.users = server_data["approximate_member_count"].as_i
                     end
                 end
