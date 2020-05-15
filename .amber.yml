@@ -10,9 +10,9 @@ watch:
     # commands will be joined with && (join them yourself if need || or ;)
     build_commands:
       - mkdir -p bin
-      - crystal build ./src/galena.cr -o bin/galena
+      - crystal build ./src/prismalytics.cr -o bin/prismalytics
     run_commands:
-      - bin/galena
+      - bin/prismalytics
     include:
       - ./config/**/*.cr
       - ./config/environments/*.yml

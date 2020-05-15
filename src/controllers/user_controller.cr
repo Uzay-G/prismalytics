@@ -2,7 +2,7 @@ class UserController < ApplicationController
   getter user = User.new
 
   before_action do
-    only [:show, :edit, :update, :destroy] { set_user }
+    only [:show, :edit, :update, :destroy] { require_user }
   end
 
   def show
@@ -46,9 +46,7 @@ class UserController < ApplicationController
     redirect_to "/", flash: {"success" => "User has been deleted."}
   end
 
-  private def set_user
-    @user = current_user.not_nil!
-  end
+
 
   private def user_params
     params.validation do

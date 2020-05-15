@@ -3,14 +3,18 @@ class BotController < ApplicationController
     getter user = User.new
 
     before_action do
-        only [:show, :edit, :update, :destroy, :new] { set_user }
+        only [:show, :edit, :update, :destroy, :new] { require_user }
     end
 
     def show
         bot = Bot.find(params[:id])
+
         if (bot.nil?)
             flash[:danger] = "Bot not found"
             redirect_to "/"
+        elsif (bot.user_id != user.id)
+            flash[:danger] = "Unauthorized"
+            redirect_to "/"                
         else
             render("show.slang")
         end
@@ -25,6 +29,9 @@ class BotController < ApplicationController
         if (bot.nil?)
             flash[:danger] = "Bot not found"
             redirect_to "/"
+        elsif (bot.user_id != user.id)
+            flash[:danger] = "Unauthorized"
+            redirect_to "/"  
         else
             render("edit.slang")
         end
@@ -33,7 +40,7 @@ class BotController < ApplicationController
     def create
         bot = Bot.new bot_params.validate!
         bot.token = Random::Secure.urlsafe_base64
-        bot.user_id = current_user.not_nil!.id
+        bot.user_id = user.not_nil!.id
         if bot.save
           redirect_to "/bots/#{bot.id}"
           flash[:success] = "Created Bot successfully."
@@ -45,12 +52,17 @@ class BotController < ApplicationController
 
     def update
         bot = Bot.find(params[:id]).not_nil!
-        bot.set_attributes bot_params.validate!
-        if bot.save
-            redirect_to "/", flash: {"success" => "User has been updated."}
+        if (bot.user_id != user.id)
+            flash[:danger] = "Unauthorized"
+            redirect_to "/"
         else
-            flash[:danger] = "Could not update bot!"
-            render "edit.slang"
+            bot.set_attributes bot_params.validate!
+            if bot.save
+                redirect_to "/", flash: {"success" => "User has been updated."}
+            else
+                flash[:danger] = "Could not update bot!"
+                render "edit.slang"
+            end
         end
     end
 
@@ -60,7 +72,7 @@ class BotController < ApplicationController
             flash[:danger] = "Bot could not be found"
             redirect_to "/"
         else
-            if current_user.not_nil!.id != bot.user.id
+            if current_user.not_nil!.id != bot.user_id
                 redirect_to "/", flash: {"danger" => "You don't have permissions to delete that bot."}
             elsif bot.destroy
                 redirect_to "/", flash: {"success" => "Bot has been deleted."}

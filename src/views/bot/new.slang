@@ -15,4 +15,3 @@ form action="/bots/create" method="post"
   button.btn.btn-success.btn-sm type="submit" Create
   == link_to("Profile", "/profile", class: "btn btn-light btn-sm")
 hr
-== link_to("Already have an account?", "/signin")

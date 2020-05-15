@@ -50,7 +50,6 @@ Amber::Server.configure do
   end
 
   routes :auth do
-    get "/profile", UserController, :show
     get "/profile/edit", UserController, :edit
     patch "/profile", UserController, :update
     get "/signout", SessionController, :delete
