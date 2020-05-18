@@ -1,40 +1,46 @@
 class StatsApiController < ApplicationController
     def send_data
         bot = Bot.find_by(token: request.headers["key"])
+        messages = JSON.parse(params[:commands])
         if bot.nil?
             halt!(401, "Unauthorized")
         else
-            if params[:message].starts_with? bot.prefix
-                message = params[:message].gsub(bot.prefix) { "" }
-                command = bot.commands.find_by(command: message.split(" ")[0])
-                if command.nil?
-                    command = Command.new(command: message.split(" ")[0], bot_id: bot.id, occurences: 1)
-                else
-                    command.occurences += 1
+            messages.as_h.each do |content, occurences|
+                if content.starts_with? bot.prefix
+                    message = content.gsub(bot.prefix) { "" }
+                    command = bot.commands.find_by(command: message)
+                    if command.nil?
+                        command = Command.new(command: message.split(" ")[0], bot_id: bot.id, occurences: occurences.as_i)
+                    else
+                        command.occurences += occurences.as_i
+                    end
+                    command.save
                 end
-                command.save
+            end
 
-                activity = Activity.where(:created_at, :gt, Time.utc.at_beginning_of_day).where(bot_id: bot.id)
-                if activity.select.empty?
-                    activity = Activity.new(bot_id: bot.id, value: 1, servers: Server.where(bot_id: bot.id).select.size)
-                else
-                    activity = activity.select.first
-                    activity.value += 1
-                end
-                activity.save
-
-                server = bot.servers.find_by(name: params[:server])
-                if server.nil? 
-                   server = Server.new(name: params[:server], bot_id: bot.id, region: params[:server_region], users: params[:member_count].to_i, message_count: 1)
-                   activity.servers += 1
-                   activity.save
-                else
-                    server.message_count += 1
-                    server.users = params[:member_count].to_i
-                end
-                server.save
+            activity = Activity.where(:created_at, :gt, Time.utc.at_beginning_of_day).where(bot_id: bot.id)
+            if activity.select.empty?
+                activity = Activity.new(bot_id: bot.id, value: 1, servers: Server.where(bot_id: bot.id).select.size)
             else
-                halt!(400, "Bad Request - Malformed Prefix")
+                activity = activity.select.first
+                activity.value += 1
+            end
+            activity.save
+
+            if params[:save_server]
+                servers = JSON.parse(params[:servers])
+                servers.as_a.each do |server|
+                    server_entry = bot.servers.find_by(name: server["name"].as_s)
+                    if server_entry.nil? 
+                        server_entry = Server.new(name: server["name"].as_s, bot_id: bot.id, region: server["region"].as_s, users: server["member_count"].as_i, message_count: server["bot_messages"].as_i)
+                        activity.servers += 1
+                        activity.save
+                    else
+                        server_entry.message_count += server["bot_messages"].as_i
+                        server_entry.users = server["member_count"].as_i
+                    end
+                    server_entry.save
+                end
             end
         end
     end
