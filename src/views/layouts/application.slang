@@ -11,15 +11,14 @@ html
     link rel="icon" type="image/x-icon" href="/favicon.ico"
     link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Roboto&display=swap" rel="stylesheet"
   body
-    nav class="navbar navbar-expand navbar-dark bg-primary mb-3"
+    nav class="navbar navbar-expand navbar-dark mb-3"
       div.container
         a.navbar-brand href="/"
-          img src="/dist/images/logo.svg" height="30" alt="Amber logo"
+          img src="/dist/images/logo.png" height="50" alt="Amber logo"
         ul class="navbar-nav mr-auto"
           == render(partial: "layouts/_nav.slang")
         ul.navbar-nav
           == render(partial: "layouts/_session.slang")
-
     div.container
       - flash.each do |key, value|
         div class="alert alert-#{key}" role="alert" #{flash[key]}

@@ -1,3 +1,8 @@
-div.row.justify-content-center
-  div.col-sm-12.col-md-6
-    p Thank you for trying out the Amber Framework.  We are working hard to provide a super fast and reliable framework that provides all the productivity tools you are used to without sacrificing the speed.
+
+div.home
+  img src="/dist/images/logo.svg"
+  h1 Powerful Bot Analytics
+  p width="100"
+    | Prismalytics allows you to gain useful insights on how your bot is being used.
+    | It provides information on which commands are most commonly used, daily stats on the interactions with users, and so much more.
+  

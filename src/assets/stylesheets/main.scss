@@ -19,6 +19,7 @@ $primary: #f4994b;
   
 }
 
+
 h3, h2, h1 {
   font-family:'Fjalla One', sans-serif;
 }
@@ -26,6 +27,7 @@ h3, h2, h1 {
 p, li {
   font-family: 'Roboto', sans-serif;
 }
+
 .servers {
   margin: auto;
   width: 800px;
@@ -45,4 +47,23 @@ p, li {
       padding: 30px 0px;
     }
   } 
+}
+
+.home {
+  margin: auto;
+  text-align: center;
+  width: 60%;
+  p {
+    width: 40%;
+    margin: auto;
+    text-align: none;
+  }
+  img {
+    margin: auto;
+    height: 300px;
+  }
+}
+
+.nav-link {
+  color: #000000 !important;
 }
