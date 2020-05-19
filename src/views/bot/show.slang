@@ -1,4 +1,12 @@
+
 div style="width: 800px; margin: auto"
+    h2 Setup
+    p We have built a custom python library that wraps to
+        code discordpy
+        | and we are working on implementing other libraries in different languages.
+        | Check out 
+        a href="https://github.com/Uzay-G/prisma.py" the docs
+        | for detailed instructions on how to get it working.
     h2 Analytics for #{bot.name}
     br
     p Daily Messages:
