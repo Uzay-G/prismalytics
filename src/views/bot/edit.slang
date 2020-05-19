@@ -1,4 +1,3 @@
-h1 Edit #{bot.name}
 - if bot.errors
   ul.errors
   - bot.errors.each do |error|
@@ -7,6 +6,7 @@ h1 Edit #{bot.name}
 
 
 form action="/bot/#{bot.id}" method="post"
+  h1 Edit #{bot.name}
   == csrf_tag
   input type="hidden" name="_method" value="patch"
   input type="hidden" name="id" value="#{bot.id}"

@@ -1,4 +1,3 @@
-h1 Sign Up
 
 - if user
   - if user.errors
@@ -8,6 +7,7 @@ h1 Sign Up
         error.to_s
 
 form action="/registration" method="post"
+  h1 Sign Up
   == csrf_tag
   div class="form-group"
     input class="form-control" type="email" name="email" placeholder="Email"
@@ -15,5 +15,5 @@ form action="/registration" method="post"
     input class="form-control" type="password" name="password" placeholder="Password"
   button.btn.btn-success.btn-sm type="submit"
     | Register
-hr
-== link_to("Already have an account?", "/signin")
+  hr
+  == link_to("Already have an account?", "/signin")

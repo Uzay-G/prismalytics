@@ -9,12 +9,12 @@ html
     link rel="apple-touch-icon" href="/favicon.png"
     link rel="icon" href="/favicon.png"
     link rel="icon" type="image/x-icon" href="/favicon.ico"
-    link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Roboto&display=swap" rel="stylesheet"
+    link href="https://fonts.googleapis.com/css2?family=Righteous&family=Roboto&display=swap" rel="stylesheet" 
   body
     nav class="navbar navbar-expand navbar-dark mb-3"
       div.container
         a.navbar-brand href="/"
-          img src="/dist/images/logo.png" height="50" alt="Amber logo"
+          img src="/dist/images/logo.svg" height="50" alt="Amber logo"
         ul class="navbar-nav mr-auto"
           == render(partial: "layouts/_nav.slang")
         ul.navbar-nav

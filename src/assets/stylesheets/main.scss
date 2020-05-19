@@ -21,7 +21,8 @@ $primary: #f4994b;
 
 
 h3, h2, h1 {
-  font-family:'Fjalla One', sans-serif;
+  font-family:'Righteous', sans-serif;
+  text-transform: uppercase;
 }
 
 p, li {
@@ -54,9 +55,9 @@ p, li {
   text-align: center;
   width: 60%;
   p {
-    width: 40%;
+    width: 90%;
     margin: auto;
-    text-align: none;
+    text-align: left;
   }
   img {
     margin: auto;
@@ -66,4 +67,21 @@ p, li {
 
 .nav-link {
   color: #000000 !important;
+}
+
+form {
+  width: 50%;
+  margin: auto;
+  text-align: center;
+}
+.show-commands {
+  padding-top: 100px;
+  display: flex;
+  h3 {
+    width: 30%;
+  }
+  div {
+    width: 60%;
+  }
+  align-items: center;
 }

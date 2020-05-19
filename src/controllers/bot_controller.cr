@@ -3,7 +3,11 @@ class BotController < ApplicationController
     getter user = User.new
 
     before_action do
-        only [:show, :edit, :update, :destroy, :new, :create] { require_user }
+        only [:show, :edit, :update, :destroy, :new, :create] { set_user }
+    end
+
+    before_action do
+        only [:create, :new] { check_no_bots }
     end
 
     def show
@@ -12,7 +16,7 @@ class BotController < ApplicationController
         if (bot.nil?)
             flash[:danger] = "Bot not found"
             redirect_to "/"
-        elsif (bot.user_id != user.id)
+        elsif (bot.user_id != current_user.not_nil!.id)
             flash[:danger] = "Unauthorized"
             redirect_to "/"                
         else
@@ -29,7 +33,7 @@ class BotController < ApplicationController
         if (bot.nil?)
             flash[:danger] = "Bot not found"
             redirect_to "/"
-        elsif (bot.user_id != user.id)
+        elsif (bot.user_id != current_user.not_nil!.id)
             flash[:danger] = "Unauthorized"
             redirect_to "/"  
         else
@@ -40,7 +44,7 @@ class BotController < ApplicationController
     def create
         bot = Bot.new bot_params.validate!
         bot.token = Random::Secure.urlsafe_base64
-        bot.user_id = user.not_nil!.id
+        bot.user_id = current_user.not_nil!.id
         if bot.save
           redirect_to "/bots/#{bot.id}"
           flash[:success] = "Created Bot successfully."
@@ -52,7 +56,7 @@ class BotController < ApplicationController
 
     def update
         bot = Bot.find(params[:id]).not_nil!
-        if (bot.user_id != user.id)
+        if (bot.user_id != current_user.not_nil!.id)
             flash[:danger] = "Unauthorized"
             redirect_to "/"
         else
@@ -93,6 +97,13 @@ class BotController < ApplicationController
         params.validation do
             required :name
             required :prefix
+        end
+    end
+
+    private def check_no_bots
+        if current_user.not_nil!.bots.size >= 5
+            flash[:danger] = "You have reached the limit of bots for your account. Please contact us if you want more"
+            redirect_to "/"
         end
     end
 end
