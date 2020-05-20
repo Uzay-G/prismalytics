@@ -76,6 +76,7 @@ form {
 }
 .show-commands {
   padding-top: 100px;
+  flex-wrap: wrap;
   display: flex;
   h3 {
     width: 30%;
@@ -84,4 +85,15 @@ form {
     width: 60%;
   }
   align-items: center;
+}
+@media only screen and (max-width: 450px) {
+  .home {
+    width: 98%;
+  }
+  .show-commands {
+    h3, div {
+      width: 100%;
+      padding: 8px 0px;
+    }
+  }
 }
