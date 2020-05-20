@@ -8,6 +8,7 @@ class User < Granite::Base
   column id : Int64, primary: true
   column email : String
   column hashed_password : String
+  column last_request : Time?
   timestamps
 
   has_many bots : Bot
