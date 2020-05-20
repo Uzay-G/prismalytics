@@ -14,6 +14,6 @@ form action="/registration" method="post"
   div class="form-group"
     input class="form-control" type="password" name="password" placeholder="Password"
   button.btn.btn-success.btn-sm type="submit"
-    | Register
+    | Submit
   hr
   == link_to("Already have an account?", "/signin")

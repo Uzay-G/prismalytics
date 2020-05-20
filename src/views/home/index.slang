@@ -8,7 +8,7 @@ div.home
 
 br
 center
-  h3 Analytics for Onyx Bot
+  h3 Your bot
 canvas#activity
 
 
