@@ -46,6 +46,7 @@ class StatsApiController < ApplicationController
                         server_entry.save
                     end
                 end
+                return(200, "Response successful!")
            # else
             #    return(429, "Rate Limited")
            # end
