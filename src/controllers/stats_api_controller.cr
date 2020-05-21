@@ -42,6 +42,7 @@ class StatsApiController < ApplicationController
                         else
                             server_entry.message_count += server["bot_messages"].as_i
                             server_entry.users = server["member_count"].as_i
+                            server_entry.region = server["region"].as_s
                         end
                         server_entry.save
                     end
