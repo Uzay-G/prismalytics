@@ -6,7 +6,7 @@ class StatsApiController < ApplicationController
             halt!(401, "Unauthorized")
         else
             user = bot.user
-            if user.last_request.nil? || (user.last_request.not_nil! - Time.utc).minutes >= 1
+         #   if user.last_request.nil? || (user.last_request.not_nil! - Time.utc).minutes >= 1
                 user.last_request = Time.utc
                 user.save
                 messages.as_h.each do |content, occurences|
@@ -46,9 +46,9 @@ class StatsApiController < ApplicationController
                         server_entry.save
                     end
                 end
-            else
-                return(429, "Rate Limited")
-            end
+           # else
+            #    return(429, "Rate Limited")
+           # end
         end
     end
 end
