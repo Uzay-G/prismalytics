@@ -2,9 +2,10 @@
 div style="width: 800px; margin: auto"
     h2 Setup
     p We have built custom 
-        a href="https://github.com/Uzay-G/prisma.py" python
-        | and
+        a href="https://github.com/Uzay-G/prisma.py" python,
         a href="https://github.com/Uzay-G/prismarb" ruby
+        | and
+        a href="https://github.com/diogoscf/prismajs" javascript
         | libraries that server as wrappers for 
         code prismalytics
         | and we are working on implementing other libraries in different languages.
