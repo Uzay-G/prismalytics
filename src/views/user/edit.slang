@@ -12,7 +12,7 @@ form action="/profile" method="post"
   input type="hidden" name="_method" value="patch"
 
   div.form-group
-    input.form-control type="email" name="email" placeholder="Email" value="#{user.email}"
+    input.form-control type="email" name="email" placeholder="Email" value="#{user.email}" required="true"
 
   == submit("Update", class: "btn btn-success btn-sm")
   == link_to("Profile", "/profile", class: "btn btn-light btn-sm")
