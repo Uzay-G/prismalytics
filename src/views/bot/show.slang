@@ -64,8 +64,11 @@ javascript:
         type: 'doughnut',
         data: #{chart_data.to_json},
         hoverBackgroundColor: "#162447",
-
     });
+    if (myDoughnutChart.data.labels.length > 20)
+    {
+        myDoughnutChart.options.legend.display = false;
+    }
     var myLineChart = new Chart("activity", {
         type: 'line',
         data: #{activity_data.to_json},
