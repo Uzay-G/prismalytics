@@ -55,7 +55,7 @@ script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.bundle.m
     - i += 1
 
 - activity_data = {"labels": [] of String, "datasets": [{"label": "Daily messages received by bot", "data": [] of Int32, "borderColor": "rgb(154, 31, 64)", "lineTension": 0.1, "fill": false},{"label": "Number of servers", "data": [] of Int32, "borderColor": "rgb(22, 36, 71)", "lineTension": 0.1,"fill": false}]}
-- bot.activities.each do |activity|
+- bot.activities.sort_by { |activity| activity.created_at.not_nil! }.each do |activity|
     - activity_data["labels"] << activity.created_at.not_nil!.to_s("%F")
     - activity_data["datasets"][0]["data"] << activity.value
     - activity_data["datasets"][1]["data"] << activity.servers
