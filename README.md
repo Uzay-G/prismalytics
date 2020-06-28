@@ -1,14 +1,11 @@
 # Prismalytics
 
-[![Amber Framework](https://img.shields.io/badge/using-amber_framework-orange.svg)](https://amberframework.org)
+Prismalytics is a free, simple discord bot analytics platform that allows you to aggregated data about how people are using your bot, which servers it's being used in and measure daily activity.
 
-This is a project written using [Amber](https://amberframework.org). Enjoy!
 
 ## Getting Started
 
 These instructions will get a copy of this project running on your machine for development and testing purposes.
-
-Please see [deployment](https://docs.amberframework.org/amber/deployment) for notes on deploying the project in production.
 
 ## Prerequisites
 
@@ -39,7 +36,7 @@ crystal spec
 
 ## Contributing
 
-1. Fork it ( https://github.com/your-github-user/galena/fork )
+1. Fork it ( https://github.com/Uzay-G/prismalytics/fork )
 2. Create your feature branch ( `git checkout -b my-new-feature` )
 3. Commit your changes ( `git commit -am 'Add some feature'` )
 4. Push to the branch ( `git push origin my-new-feature` )
@@ -47,4 +44,4 @@ crystal spec
 
 ## Contributors
 
-- [your-github-user](https://github.com/your-github-user) Uzay-G - creator, maintainer
+- [Uzay-G](https://github.com/Uzay-G) - creator, maintainer
