@@ -1,6 +1,6 @@
 # Prismalytics
 
-Prismalytics is a free, simple discord bot analytics platform that allows you to aggregated data about how people are using your bot, which servers it's being used in and measure daily activity.
+Prismalytics is a free, simple discord bot analytics platform that allows you to aggregate data about how people are using your bot, which servers it's being used in and you can even measure daily activity!
 
 
 ## Getting Started
